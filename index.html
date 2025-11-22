@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WOOSHDEX | Professional DEX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              woosh: {
+                bg: '#0B0B0D',
+                surface: '#0F1113',
+                card: '#141619',
+                red: '#FF2D2D',
+                darkRed: '#8B0000',
+                text: '#E6E6E6',
+                subtext: '#A1A1AA',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              glow: {
+                '0%': { boxShadow: '0 0 5px #8B0000' },
+                '100%': { boxShadow: '0 0 20px #FF2D2D' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #0B0B0D;
+        color: #E6E6E6;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+      /* Abstract Background */
+      .woosh-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: radial-gradient(circle at 10% 20%, #1a0505 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, #1a0505 0%, transparent 40%),
+                    #0B0B0D;
+      }
+      .woosh-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        z-index: -1;
+      }
+      .orb-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #8B0000; animation: float 10s infinite ease-in-out; }
+      .orb-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: #500000; animation: float 15s infinite ease-in-out reverse; }
+      
+      @keyframes float {
+        0% { transform: translate(0, 0); }
+        50% { transform: translate(20px, 40px); }
+        100% { transform: translate(0, 0); }
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0B0B0D; }
+      ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #FF2D2D; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "viem": "https://aistudiocdn.com/viem@^2.39.3",
+    "wagmi/": "https://aistudiocdn.com/wagmi@^3.0.1/",
+    "wagmi": "https://aistudiocdn.com/wagmi@^3.0.1",
+    "@tanstack/react-query": "https://aistudiocdn.com/@tanstack/react-query@^5.90.10"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="woosh-bg">
+      <div class="woosh-orb orb-1"></div>
+      <div class="woosh-orb orb-2"></div>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
